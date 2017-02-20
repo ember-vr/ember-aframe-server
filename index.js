@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 const uuidV4 = require('uuid/v4');
 
-const wss = new WebSocket.Server({ port: 8080 });
+const wss = new WebSocket.Server({ port: 80 });
 
 let clients =  [];
 
