@@ -37,7 +37,7 @@ wss.on('connection', function connection(ws) {
 
   ws.on('message', function incoming(data) {
     // Broadcast to everyone else.
-    console.log('message: ', data);
+    // console.log('message: ', data);
     // wss.clients.forEach(function each(client) {
     //   if (client !== ws && client.readyState === WebSocket.OPEN) {
     //     console.log('send: ', data);
@@ -47,7 +47,7 @@ wss.on('connection', function connection(ws) {
     Object.keys(clients).forEach(id => {
       let client = clients[id];
       if (client !== ws && client.readyState === WebSocket.OPEN) {
-        console.log('send: ', data);
+        // console.log('send: ', data);
         client.send(id + ' ' + data);
       }
     });
