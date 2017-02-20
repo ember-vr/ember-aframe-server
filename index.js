@@ -5,7 +5,7 @@ const wss = new WebSocket.Server({ port: 80 });
 
 let clients =  [];
 
-console.log('started');
+console.log('started on ' + location.origin);
 wss.on('connection', function connection(ws) {
   console.log('connection');
   let id = uuidV4();
