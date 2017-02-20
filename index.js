@@ -1,11 +1,13 @@
 const WebSocket = require('ws');
 const uuidV4 = require('uuid/v4');
 
-const wss = new WebSocket.Server({ port: 80 });
+let port = process.env.PORT || 8080;
+
+const wss = new WebSocket.Server({ port });
 
 let clients =  [];
 
-console.log('started on ' + location.origin);
+console.log('started on port ' + port);
 wss.on('connection', function connection(ws) {
   console.log('connection');
   let id = uuidV4();
