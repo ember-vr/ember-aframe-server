@@ -1,0 +1,16 @@
+{
+  "name": "ember-a-frame-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kelly Selden",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "uuid": "^3.0.1",
+    "ws": "^2.1.0"
+  }
+}
