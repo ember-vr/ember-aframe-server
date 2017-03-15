@@ -53,14 +53,17 @@ wss.on('connection', function connection(ws) {
         if (client.ws !== ws && client.ws.readyState === WebSocket.OPEN) {
           data = JSON.stringify(json);
           // console.log('send: ', data);
-          if (client.route === previousRoute) {
+          let hasRouteChangedSinceLastTime = previousRoute !== json.data;
+          let didTheyUsedToBeInThisRoute = client.route === previousRoute;
+          if (didTheyUsedToBeInThisRoute && hasRouteChangedSinceLastTime) {
             // client.ws.send(data);
             client.ws.send(JSON.stringify({
               type: 'left',
               id
             }));
           }
-          if (client.route === json.data) {
+          let areTheyInTheSameRouteAsMe = client.route === json.data;
+          if (areTheyInTheSameRouteAsMe && hasRouteChangedSinceLastTime) {
             // console.log('me: ' + id + ' with route ' + json.data);
             // console.log('other: ' + clientId + ' with route ' + client.route);
             ws.send(JSON.stringify({
