@@ -1,1 +1,1 @@
-# ember-a-frame-server
+# ember-aframe-server
